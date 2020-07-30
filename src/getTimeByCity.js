@@ -8,19 +8,13 @@ const offsets = {
     'los-angeles': -420,
 };
 
-const getTime = (cityId) => {
+const getTime = (city) => {
     const localDate = new Date();
-    const offset = localDate.getTimezoneOffset() + offsets[cityId];
+    const offset = localDate.getTimezoneOffset() + offsets[city];
+
+    console.log(new Date(+localDate + offset * 60 * 1000));
+
     return new Date(+localDate + offset * 60 * 1000);
 };
-
-// const getTime = async (city) => {
-//     const url = `http://worldtimeapi.org/api/timezone/${city}`;
-//     const response = await fetch(url);
-//     const result = await response.json();
-//     const time = new Date(result.datetime);
-
-//     return time;
-// };
 
 export default getTime;
