@@ -10,7 +10,7 @@ function Clock(props) {
             setTime(() => getTimeByCity(props.city));
         }, 1000);
         return () => clearInterval(id);
-    }, []);
+    }, [props.city]);
 
     return (
         <div className='clock-wrapper'>
